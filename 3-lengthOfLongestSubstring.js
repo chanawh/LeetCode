@@ -43,6 +43,23 @@ function lengthOfLongestSubstring(s) {
     return longest; // After iterating through the entire string, we return the value of `longest`, which represents the length of the longest substring without repeating characters.
 }
 
+function test_lengthOfLongestSubstring(s, expected_output) {
+  const actual_output = lengthOfLongestSubstring(s);
+  if (actual_output !== expected_output) {
+    console.error(`Failed for input: ${s}, expected: ${expected_output}, got: ${actual_output}`);
+  }
+}
+
+// Test cases
+test_lengthOfLongestSubstring("", 0);
+test_lengthOfLongestSubstring("abcabcbb", 3);
+test_lengthOfLongestSubstring("bbbbb", 1);
+test_lengthOfLongestSubstring("pwwkew", 3);
+test_lengthOfLongestSubstring("aab", 2);
+test_lengthOfLongestSubstring("dvdf", 3); // Test with extra characters
+
+console.log("All tests passed!");
+
 
 // 1. **Break it down:** We need to find the longest substring (a continuous sequence of characters) where all characters are unique (no repetitions).
 // 2. **Identify patterns:** We can use a "sliding window" technique. Imagine a window that slides across the string, keeping track of the characters within that window. As we slide, we need to ensure there are no repeating characters inside the window.
